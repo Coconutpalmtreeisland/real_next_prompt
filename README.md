@@ -386,6 +386,75 @@ experimental: {
     },
 ```
 
+**7. mongodb 연동 안됨**
+- 오류:  
+Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+*****
+Error: User validation failed: username: Username invalid, it should contain 8-20 alphanumeric letters and be unique!
+```javascript
+errors: {
+    username: ValidatorError: Username invalid, it should contain 8-20 alphanumeric letters and be unique!
+    {
+        properties: [Object],
+        kind: 'regexp',
+        path: 'username',
+        value: 'ᄋᄋ',
+        reason: undefined,
+        [Symbol(mongoose#validatorError)]: true
+    }
+},
+_message: 'User validation failed'
+```
+*****
+
+- 해결:  
+node.js 4.0 버전부터는 useNewUrlParser, useUnifiedTopology 더 이상 필요하지 않아서 뜬 경고문으로 삭제함.
+*****
+기존 username이 `[/^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/, "Username invalid, it should contain 8-20 alphanumeric letters and be unique!"]` 으로 영어, 숫자만 가능하게 되어있기 때문에 발생한 오류. 한글 포함이 되도록 `/^(?=.{2,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._ㄱ-ㅎ가-힣]+(?<![_.])$/` 으로 바꿈.
+*****
+```javascript
+const handler = NextAuth({
+    providers: [
+        GoogleProvider({
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }),
+    ],
+    async session({ session }) {
+        const sessionUser = await User.findOne({ email: session.user.email });
+
+        session.user.id = sessionUser._id.toString();
+
+        return session;
+    },
+    async signIn({ profile }) {
+        try {
+            await connectToDB();
+            
+            // 사용자가 이미 존재하는지 확인
+            const userExists = await User.findOne({ email: profile.email });
+
+            // 존재하지 않다면 새로운 사용자를 생성
+            if (!userExists) {
+                await User.create({
+                    email: profile.email,
+                    username: profile.name.replace(' ', '').toLowerCase(),
+                    image: profile.picture,
+                });
+            }
+
+            return true;
+        } catch (error) {
+            console.log("Error checking if user exists: ", error.message);
+            return false;
+        }
+    },
+});
+```
+세션 부분을 callbacks로 감싸줌.
+
 ### 용어 정리
 <details>
     <summary>자세히 보기</summary>
@@ -415,3 +484,16 @@ experimental: {
 **객체의 속성이 존재하지 않을 경우에 오류를 발생시키지 않고 undefined를 반환할 수 있다!**
 
     > `session?.user`라는 코드에서 session 객체가 존재하지 않거나 session 객체 안에 user 속성이 없을 경우에는 undefined를 반환하고, 그렇지 않으면 user 속성의 값을 반환하여 `session && session.user` 대신 사용하므로 코드가 `간결`해집니다.
+
+
+    검색 기능
+    프롬프트 내용으로 검색
+    태그로 검색
+    사용자 이름으로 검색
+    Feed.jsx
+
+    태그를 클릭했을 때 같은 태그끼리 한 페이지에 보이기
+    Feed.jsx
+
+    다른 사람의 프로필을 클릭해서 해당 사용자 글 모두 보기
+    profile - [id] - page.jsx & PromptCard.jsx
