@@ -456,7 +456,28 @@ const handler = NextAuth({
 세션 부분을 callbacks로 감싸줌.
 
 **8.배포시 feed가 안 보임**
+// https://dev.to/janetthedev/using-mongooses-populate-in-nextjs-4jof
 .populate('creator') --> .populate ({ path: 'creator' })
+```
+        await connectToDB();
+        const prompts = await Prompt.find().populate({
+          path: "creator"
+        });
+
+        const response = new Response(JSON.stringify(prompts), {
+          status: 200,
+        });
+
+        // Add a unique identifier to the URL to force a cache-busting reload
+        const url = new URL(request.url);
+        url.searchParams.set("t", Date.now());
+        response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.headers.set("Pragma", "no-cache");
+        response.headers.set("Expires", "0");
+        response.headers.set("Location", url.toString());
+
+        return response;
+```
 
 ### 용어 정리
 <details>
