@@ -1,16 +1,18 @@
-<a href="https://youtu.be/wm5gMKuwSYk?si=wuja5ARlg9NTxu07" target="_blank">참고한 영상</a>
-[참고한 영상](https://youtu.be/wm5gMKuwSYk?si=wuja5ARlg9NTxu07){:target="_blank" rel="noopener"}
+# Promptivortex
+창의적인 프롬프트를 발견하고, 생성하고, 공유하기 위한 오픈소스 AI 프롬프트 사이트입니다.
 
-### 사용한 기술
+[참고한 영상](https://youtu.be/wm5gMKuwSYk?si=wuja5ARlg9NTxu07)
+
+## 사용한 기술
 - Next.js
 - MongoDB
 - NextAuth
 - TailwindCSS
 
-### `CSR`과 `SSR`관점에서 보는 `React` 와 `Next`의 차이점 :
-`CSR중심인 React`는 동적이고 상호작용이 많은 사용자 인터페이스를 구축하고 브라우저에서 렌더링 되기 때문에 사용자와 실시간으로 상호작용이 가능합니다. 하지만 브라우저에서 렌더링 하다보니 초기 로딩 시간이 길어져서 페이지 전체의 콘텐츠를 볼 수 없기 떄문에 검색 엔진 최적화(SEO)에 취약합니다.
+## `CSR`과 `SSR`관점에서 보는 `React` 와 `Next`의 차이점 :
+`CSR 중심`인 `React`는 동적이고 상호작용이 많은 사용자 인터페이스를 구축하고 브라우저에서 렌더링 되기 때문에 사용자와 실시간으로 상호작용이 가능합니다. 하지만 브라우저에서 렌더링 하다보니 초기 로딩 시간이 길어져서 페이지 전체의 콘텐츠를 볼 수 없기 떄문에 검색 엔진 최적화(SEO)에 취약합니다.
 
-반면, `Next.js는 SSR 중심`이기 때문에 사용자의 요청에 따라 서버에서 페이지의 전체 HTML을 미리 생성함으로써 로딩 시간이 줄어듭니다. 결과적으로 검색엔진이 Next.js로 만든 사이트를 더 잘 이해하고 저장하기 때문에 SEO가 개선되고 사용자는 웹사이트에 빠르게 접근할 수 있기 떄문에 사용자 경험이 향상됩니다.
+반면, `Next.js`는 `SSR 중심`이기 때문에 사용자의 요청에 따라 서버에서 페이지의 전체 HTML을 미리 생성함으로써 로딩 시간이 줄어듭니다. 결과적으로 검색엔진이 Next.js로 만든 사이트를 더 잘 이해하고 저장하기 때문에 SEO가 개선되고 사용자는 웹사이트에 빠르게 접근할 수 있기 떄문에 사용자 경험이 향상됩니다.
 
 그러나 Next.js는 필요에 따라 CSR이 가능합니다.
 Next.js에서 SSR 컴포넌트를 CSR 컴포넌트로 변환하고 싶은 경우 추가 작업이 필요합니다. 페이지 상단에 'use client' 지시문을 추가하면 CSR 컴포넌트로 변환되어 useState, useEffect 등의 사용이 가능합니다. 이를 활요해 CSR과 SSR을 모두 사용함으로써 SSR의 이점 뿐만 아니라 동적이고 상호작용이 많은 UI를 구축할 수 있습니다.
@@ -20,18 +22,22 @@ Next.js에서 SSR 컴포넌트를 CSR 컴포넌트로 변환하고 싶은 경우
     - SSR: 데이터를 가져올 때, 백엔드 리소스에 직접 액세스할 때, 서버에 센서 정보, 액세스 토큰, API 키 등이 있는 경우, 클라이언트 측 JavaScript를 최소화하고자 할 때.  <br/><br/>
     - CSR: 클릭 또는 변경과 같은 상호작용 또는 이벤트 리스너를 사용할 때, useState와 useEffect와 같은 훅을 사용하는 경우, 브라우저 전용 API에 의존하는 사용자 정의 훅을 사용하는 경우, React 클래스 컴포넌트를 사용하는 경우.
 
+<details>
+    <summary>next.js 설치하기</summary>
+    
+    `npx create-next-app@latest ./`
+    
+    √ Would you like to use TypeScript? ... `No` / Yes  
+    √ Would you like to use ESLint? ... `No` / Yes  
+    √ Would you like to use Tailwind CSS? ... No / `Yes`  
+    √ Would you like to use `src/` directory? ... `No` / Yes  
+    √ Would you like to use App Router? (recommended) ... No / `Yes`  
+    √ Would you like to customize the default import alias (@/*)? ... No / `Yes`  
+    √ What import alias would you like configured? ... @/*  
+    Creating a new Next.js app in C:\Users\line\Desktop\share_prompts_next.js.
 
-next.js 설치하기  
-`npx create-next-app@latest ./`
+</details>
 
-√ Would you like to use TypeScript? ... `No` / Yes  
-√ Would you like to use ESLint? ... `No` / Yes  
-√ Would you like to use Tailwind CSS? ... No / `Yes`  
-√ Would you like to use `src/` directory? ... `No` / Yes  
-√ Would you like to use App Router? (recommended) ... No / `Yes`  
-√ Would you like to customize the default import alias (@/*)? ... No / `Yes`  
-√ What import alias would you like configured? ... @/*  
-Creating a new Next.js app in C:\Users\line\Desktop\share_prompts_next.js.
 
 <details>
     <summary>Next.js의 구조</summary>
@@ -55,13 +61,11 @@ Creating a new Next.js app in C:\Users\line\Desktop\share_prompts_next.js.
 
     ⋄ error.js :
     에러가 생성될 때 자동으로 실행되며 사용자에게 에러를 표시합니다.
-    예시
 
-    ```
+    예시
     'use client'; // 에러 컴포넌트는 반드시 클라이언트 컴포넌트에 있어야합니다. 사용자에게 실시간으로 피드백을 제공하여 UX를 향상시킵니다.
 
     import { useEffect } from 'react';
-
 
     const Error = ({ error, reset }) => {
         useEffect(() => {
@@ -85,16 +89,14 @@ Creating a new Next.js app in C:\Users\line\Desktop\share_prompts_next.js.
     }
 
     export default Error;
-    ```
 
 </details><br />
 
-
-Data Fetching(데이터 가져오기 , 3가지 방법) :
-1. Server Side Redering (SSR)
-2. Static Site Generation (SSG)
-3. Incremental Static Generation (ISR)
-
+<details>
+    <summary>Data Fetching(데이터 가져오기 , 3가지 방법)</summary>
+    1. Server Side Redering (SSR)<br />
+    2. Static Site Generation (SSG)<br />
+    3. Incremental Static Generation (ISR)<br />
     <details>
         <summary>용어 설명</summary>
 
@@ -103,10 +105,11 @@ Data Fetching(데이터 가져오기 , 3가지 방법) :
 
         ⋆ ISR : 빌드 시점에서 일부 페이지만 미리 생성하고, 이후 사용자의 요청에 따라 필요한 페이지를 뒷담에서 렌더링하여 정적 파일로 추가하는 방식.
         사용자는 빠르게 페이지에 접근할 수 있으며, 실시간 데이터 업데이트가 가능하기 때문에 동적인 웹사이트에도 적합합니다.
-
-    </details>
+    
+</details><br />
 
 ****
+
 
 ### 간단한 GET 요청을 위한 Express.js 서버 라우트를 설정하는 기본 방법
 ```javascript
