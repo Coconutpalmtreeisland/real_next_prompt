@@ -455,6 +455,9 @@ const handler = NextAuth({
 ```
 세션 부분을 callbacks로 감싸줌.
 
+**8.배포시 feed가 안 보임**
+.populate('creator') --> .populate ({ path: 'creator' })
+
 ### 용어 정리
 <details>
     <summary>자세히 보기</summary>
