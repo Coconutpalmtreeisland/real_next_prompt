@@ -497,3 +497,6 @@ const handler = NextAuth({
 
     다른 사람의 프로필을 클릭해서 해당 사용자 글 모두 보기
     profile - [id] - page.jsx & PromptCard.jsx
+
+    배포 vercel에 배포 후 설정에서 키 추가하기
+    구글 클라우드 콘솔에도 승인된 자바스크립트 원본, 승인된 리디렉션 URI 배포된 주소 추가하기
