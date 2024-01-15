@@ -533,7 +533,7 @@ return response;
 <img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/real_next_prompt/main/public/assets/images/vercel deploy setting.png"><br />
  
 2. 구글 클라우드 콘솔에도 승인된 자바스크립트 원본, 승인된 리디렉션 URI에 배포된 주소 추가하기<br />
-<img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/real_next_prompt/main/public/assets/images/add url"><br />
+<img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/real_next_prompt/main/public/assets/images/add url.png"><br />
 ****
 ### 용어 정리
 <details>
