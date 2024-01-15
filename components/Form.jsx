@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Form = ({type, post, setPost, submitting, handleSubmit}) => {
+const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="head_text text-left">
@@ -11,13 +11,14 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
       </p>
 
       <form
-      onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism"
       >
         <label>
           <span className="font-inter font-bold text-base text-gray-700">Your AI Prompt</span>
           <textarea
             value={post.prompt}
+            // setPost에 기존 post 데이터 유지, 새로 입력한 prompt 저장
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
             placeholder="프롬프트를 여기에 입력하세요"
             required
@@ -45,9 +46,11 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
 
           <button
             type="submit"
+            // submitting 상태가 true일 때 버튼은 비활성화
             disabled={submitting}
             className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
           >
+            {/* 제출 중이면 Creating...' 또는 'Editing...'표시 */}
             {submitting ? `${type}ing...` : type}
           </button>
         </div>

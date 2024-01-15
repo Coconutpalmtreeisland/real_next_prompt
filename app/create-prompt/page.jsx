@@ -22,15 +22,15 @@ const CreatePrompt = () => {
 
         try {
             const response = await fetch('/api/prompt/new', {
-                method: 'POST',
-                body: JSON.stringify({
+                method: 'POST', // HTTP 요청 메서드를 POST로 지정
+                body: JSON.stringify({  // JSON 형태로 데이터를 전송
                     prompt: post.prompt,
                     userId: session?.user.id,
                     tag: post.tag,
                 }),
             });
 
-            if(response.ok) {
+            if (response.ok) {
                 router.push('/');
             }
         } catch (err) {
@@ -40,15 +40,15 @@ const CreatePrompt = () => {
         }
     };
 
-  return (
-    <Form
-        type='Create'
-        post={post}
-        setPost={setPost}
-        submitting={submitting}
-        handleSubmit={createPrompt}
-    />
-  );
+    return (
+        <Form
+            type='Create'
+            post={post}
+            setPost={setPost}
+            submitting={submitting}
+            handleSubmit={createPrompt}
+        />
+    );
 };
 
 export default CreatePrompt;

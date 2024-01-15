@@ -6,8 +6,8 @@ import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
-  const { data : session } = useSession();
-  const pathName = usePathname();
+  const { data: session } = useSession();
+  const pathName = usePathname(); // URL의 경로 부분 '/profile' 경로에 있을 경우에만 'Edit'과 'Delete' 옵션이 표시되도록 하기 위해 설정
   const router = useRouter();
 
   const [copied, setCopied] = useState("");
@@ -15,15 +15,17 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const handleProfileClick = () => {
     console.log(post);
 
+    // 포스트 작성자랑 세션에 user.id랑 같으면 내 프로필 페이지로 이동
     if (post.creator._id === session?.user.id) return router.push("/profile");
 
+    // 그렇지 않으면 해당 포스트 작성자 프로필 페이지로 이동
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
 
   const handleCopy = () => {
-    setCopied(post.prompt);
+    setCopied(post.prompt); // 복사 성공 이미지 표시를 위해 setCopied에 저장
     navigator.clipboard.writeText(post.prompt);
-    setTimeout(() => setCopied(""), 3000);
+    setTimeout(() => setCopied(""), 3000);  // 다시 복사 가능 이미지를 표시하기 위해 setCopied 값 초기화
   };
 
   return (
@@ -50,7 +52,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
         <div className="copy_btn" onClick={handleCopy}>
           <Image
-            src={copied === post.prompt ? '/assets/icons/tick.svg' : '/assets/icons/copy.svg'}
+            src={copied === post.prompt ? '/assets/icons/tick.svg' : '/assets/icons/copy.svg'}  // copid에 저장된 값이 post.prompt 같으면 체크 표시, 비어있으면 복사 가능 표시
             alt={copied === post.prompt ? "tick_icon" : "copy_icon"}
             width={12}
             height={12}

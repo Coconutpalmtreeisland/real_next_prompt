@@ -9,15 +9,15 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
       <p className="desc text-left">{desc}</p>
 
       <div className='mt-10 prompt_layout'>
-      {data.map((post) => (
-        <PromptCard
-          key={post._id}
-          post={post}
-          handleEdit={() => handleEdit && handleEdit(post)}
-          handleDelete={() => handleDelete && handleDelete(post)}
-        />
-      ))}
-    </div>
+        {data.map((post) => (
+          <PromptCard
+            key={post._id}
+            post={post}
+            handleEdit={() => handleEdit && handleEdit(post)} // handleEdit가 존재할 때  handleEdit(post)를 호출
+            handleDelete={() => handleDelete && handleDelete(post)}
+          />
+        ))}
+      </div>
     </section>
   );
 };

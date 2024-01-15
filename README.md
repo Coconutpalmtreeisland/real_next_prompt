@@ -1,15 +1,32 @@
-# Promptivortex
-창의적인 프롬프트를 발견하고, 생성하고, 공유하기 위한 오픈소스 AI 프롬프트 사이트입니다.
+# Promptivortex <div style="font-weight: 300; font-size: 16px; float:right;"><a href="https://youtu.be/wm5gMKuwSYk?si=wuja5ARlg9NTxu07">참고한 영상</a></div>
+<div align="center">
+<img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/real_next_prompt/main/public/assets/images/Promptivortex.png"><br /><br />
+</div>
+창의적인 프롬프트를 발견하고, 생성하고, 공유하기 위한 오픈소스 AI 프롬프트 사이트입니다.<br /><br />
 
-[참고한 영상](https://youtu.be/wm5gMKuwSYk?si=wuja5ARlg9NTxu07)
+- 기능:  
+    - 구글 계정으로 로그인 / 로그아웃
+    - 글 작성 / 수정 / 삭제 
+    - 프롬프트 내용 / 태그 / 사용자 이름으로 검색(Feed.jsx)  
+    - 태그를 클릭했을 때 같은 태그끼리 보기(Feed.jsx)  
+    - 프로필을 클릭했을 때 해당 사용자 글 모두 보기(profile - [id] - page.jsx & PromptCard.jsx)  
 
-## 사용한 기술
-- Next.js
-- MongoDB
-- NextAuth
-- TailwindCSS
+<div align="center">
+<h3>사용한 기술</h3>
+    
+|Next.js|MongoDB|NextAuth|TailwindCSS|
+|---|---|---|---|
+</div>
+<br />
 
-## `CSR`과 `SSR`관점에서 보는 `React` 와 `Next`의 차이점 :
+****
+
+## Next.js
+
+<details>
+    
+<summary>CSR과 SSR관점에서 보는 React와 Next의 차이점 </summary>
+<br/>
 `CSR 중심`인 `React`는 동적이고 상호작용이 많은 사용자 인터페이스를 구축하고 브라우저에서 렌더링 되기 때문에 사용자와 실시간으로 상호작용이 가능합니다. 하지만 브라우저에서 렌더링 하다보니 초기 로딩 시간이 길어져서 페이지 전체의 콘텐츠를 볼 수 없기 떄문에 검색 엔진 최적화(SEO)에 취약합니다.
 
 반면, `Next.js`는 `SSR 중심`이기 때문에 사용자의 요청에 따라 서버에서 페이지의 전체 HTML을 미리 생성함으로써 로딩 시간이 줄어듭니다. 결과적으로 검색엔진이 Next.js로 만든 사이트를 더 잘 이해하고 저장하기 때문에 SEO가 개선되고 사용자는 웹사이트에 빠르게 접근할 수 있기 떄문에 사용자 경험이 향상됩니다.
@@ -18,100 +35,99 @@
 Next.js에서 SSR 컴포넌트를 CSR 컴포넌트로 변환하고 싶은 경우 추가 작업이 필요합니다. 페이지 상단에 'use client' 지시문을 추가하면 CSR 컴포넌트로 변환되어 useState, useEffect 등의 사용이 가능합니다. 이를 활요해 CSR과 SSR을 모두 사용함으로써 SSR의 이점 뿐만 아니라 동적이고 상호작용이 많은 UI를 구축할 수 있습니다.
 
 > [!NOTE]  
-> 공식 문서에 따른 렌더링 방식 가이드 :  <br/><br/>
-    - SSR: 데이터를 가져올 때, 백엔드 리소스에 직접 액세스할 때, 서버에 센서 정보, 액세스 토큰, API 키 등이 있는 경우, 클라이언트 측 JavaScript를 최소화하고자 할 때.  <br/><br/>
-    - CSR: 클릭 또는 변경과 같은 상호작용 또는 이벤트 리스너를 사용할 때, useState와 useEffect와 같은 훅을 사용하는 경우, 브라우저 전용 API에 의존하는 사용자 정의 훅을 사용하는 경우, React 클래스 컴포넌트를 사용하는 경우.
-
-<details>
-    <summary>next.js 설치하기</summary>
-    
-    `npx create-next-app@latest ./`
-    
-    √ Would you like to use TypeScript? ... `No` / Yes  
-    √ Would you like to use ESLint? ... `No` / Yes  
-    √ Would you like to use Tailwind CSS? ... No / `Yes`  
-    √ Would you like to use `src/` directory? ... `No` / Yes  
-    √ Would you like to use App Router? (recommended) ... No / `Yes`  
-    √ Would you like to customize the default import alias (@/*)? ... No / `Yes`  
-    √ What import alias would you like configured? ... @/*  
-    Creating a new Next.js app in C:\Users\line\Desktop\share_prompts_next.js.
+> 공식 문서에 따른 렌더링 방식 가이드 :  <br/>
+>- SSR: 데이터를 가져올 때, 백엔드 리소스에 직접 액세스할 때, 서버에 센서 정보, 액세스 토큰, API 키 등이 있는 경우, 클라이언트 측 JavaScript를 최소화하고자 할 때.  <br/><br/>
+>- CSR: 클릭 또는 변경과 같은 상호작용 또는 이벤트 리스너를 사용할 때, useState와 useEffect와 같은 훅을 사용하는 경우, 브라우저 전용 API에 의존하는 사용자 정의 훅을 사용하는 경우, React 클래스 컴포넌트를 사용하는 경우.
 
 </details>
 
+<details>
+    
+<summary>next.js 설치하기</summary>
+
+`npx create-next-app@latest .`
+
+√ Would you like to use TypeScript? ... `No` / Yes  
+√ Would you like to use ESLint? ... `No` / Yes  
+√ Would you like to use Tailwind CSS? ... No / `Yes`  
+√ Would you like to use `src/` directory? ... `No` / Yes  
+√ Would you like to use App Router? (recommended) ... No / `Yes`  
+√ Would you like to customize the default import alias (@/*)? ... No / `Yes`  
+√ What import alias would you like configured? ... @/*  
+Creating a new Next.js app in C:\Users\line\Desktop\share_prompts_next.js.
+
+- 그 외 설치
+`npm install bcrypt mongodb mongoose next-auth`
+    - bcrypt 비밀번호 암호화
+    - mongodb, mongoose 데이터베이스 관리
+    - next-auth 로그인
+
+</details>
 
 <details>
-    <summary>Next.js의 구조</summary>
+<summary>Next.js의 구조</summary>
+⋄ layout.js :<br />
+layout.js에 모든 컴포넌트가 자식 요소로 들어갑니다.<br />
+layout.js에 생성하는 코드는 모든 라우트 페이지에 표시됩니다.<br />
+즉, 이 파일에 포함되는 컴포넌트는 전체 페이지에 공유됩니다.<br />
+모든 페이지에 네비게이션 바나 푸터, Redux 같은 공통된 레이아웃이나 템플릿을 제공할 수 있습니다.<br /><br />
+⋄ page.js :<br />
+page.js 파일은 애플리케이션의 홈페이지 경로를 나타냅니다.<br /><br />
+⋄ Next.js의 라우팅 시스템 :<br />
+원하는 경로에 해당하는 폴더를 생성하면 해당 폴더 이름으로 경로 이름이 라우팅됩니다.<br />
+동적인 라우팅 주소는 [id]폴더를 만들고 폴더 안에 page.js를 파일 생성으로 구현됩니다.<br />
+(예) posts - [postId] - page.js : /posts/blog-post-1 /posts/blog-post-2 /posts blog-post-3 ...<br /><br />
+⋄ loading.js :<br />
+페이지가 로드될 때까지 로딩중을 렌더링합니다.<br /><br />
+⋄ error.js :<br />
+에러가 생성될 때 자동으로 실행되며 사용자에게 에러를 표시합니다.<br /><br />
 
-    ⋄ layout.js :
-    layout.js에 모든 컴포넌트가 자식 요소로 들어갑니다.
-    layout.js에 생성하는 코드는 모든 라우트 페이지에 표시됩니다.
-    즉, 이 파일에 포함되는 컴포넌트는 전체 페이지에 공유됩니다.
-    모든 페이지에 네비게이션 바나 푸터, Redux 같은 공통된 레이아웃이나 템플릿을 제공할 수 있습니다.
+```javascript
+'use client'; // 에러 컴포넌트는 반드시 클라이언트 컴포넌트에 있어야합니다. 사용자에게 실시간으로 피드백을 제공하여 UX를 향상시킵니다.
+import { useEffect } from 'react';
+const Error = ({ error, reset }) => {
+    useEffect(() => {
+        // 사용자에게 에러 메세지 표시
+        console.log(error);
+    }, [error]);
+    return (
+        <div>
+            <h2>오류 발생!</h2>
+            <button
+                onClick={
+                    // 에러 리셋
+                    () => reset()
+                }
+            >
+                재실행하기
+            </button>
+        </div>
+    )
+}
+export default Error;
+```
 
-    ⋄ page.js :
-    page.js 파일은 애플리케이션의 홈페이지 경로를 나타냅니다.
-
-    ⋄ Next.js의 라우팅 시스템 :
-    원하는 경로에 해당하는 폴더를 생성하면 해당 폴더 이름으로 경로 이름이 라우팅됩니다.
-    동적인 라우팅 주소는 [id]폴더를 만들고 폴더 안에 page.js를 파일 생성으로 구현됩니다.
-    (예) posts - [postId] - page.js : /posts/blog-post-1 /posts/blog-post-2 /posts/blog-post-3 ...
-
-    ⋄ loading.js :
-    페이지가 로드될 때까지 로딩중을 렌더링합니다.
-
-    ⋄ error.js :
-    에러가 생성될 때 자동으로 실행되며 사용자에게 에러를 표시합니다.
-
-    예시
-    'use client'; // 에러 컴포넌트는 반드시 클라이언트 컴포넌트에 있어야합니다. 사용자에게 실시간으로 피드백을 제공하여 UX를 향상시킵니다.
-
-    import { useEffect } from 'react';
-
-    const Error = ({ error, reset }) => {
-        useEffect(() => {
-            // 사용자에게 에러 메세지 표시
-            console.log(error);
-        }, [error]);
-
-        return (
-            <div>
-                <h2>오류 발생!</h2>
-                <button
-                    onClick={
-                        // 에러 리셋
-                        () => reset()
-                    }
-                >
-                    재실행하기
-                </button>
-            </div>
-        )
-    }
-
-    export default Error;
-
-</details><br />
+</details>
 
 <details>
     <summary>Data Fetching(데이터 가져오기 , 3가지 방법)</summary>
-    1. Server Side Redering (SSR)<br />
-    2. Static Site Generation (SSG)<br />
-    3. Incremental Static Generation (ISR)<br />
+
+1. Server Side Redering (SSR)<br />
+2. Static Site Generation (SSG)<br />
+3. Incremental Static Generation (ISR)<br />
     <details>
         <summary>용어 설명</summary>
 
-        ⋆ SSG : build 할 때 웹 페이지를 미리 생성하는 방식.
-        사용자 요청이 있을 때 마다 이미 생성된 정적 페이지를 제공하여 빠르게 응답하고 SEO에 유리합니다. 다만, build 시간이 길어질 수 있고 실시간 업데이트가 어렵습니다.
+    - SSG : build 할 때 웹 페이지를 미리 생성하는 방식.<br />
+    사용자 요청이 있을 때 마다 이미 생성된 정적 페이지를 제공하여 빠르게 응답하고 SEO에 유리합니다. 다만, build 시간이 길어질 수 있고 실시간 업데이트가 어렵습니다.<br /><br />
+    - ISR : 빌드 시점에서 일부 페이지만 미리 생성하고, 이후 사용자의 요청에 따라 필요한 페이지를 뒷담에서 렌더링하여 정적 파일로 추가하는 방식.<br />
+    사용자는 빠르게 페이지에 접근할 수 있으며, 실시간 데이터 업데이트가 가능하기 때문에 동적인 웹사이트에도 적합합니다.
+    </details>
+</details>
 
-        ⋆ ISR : 빌드 시점에서 일부 페이지만 미리 생성하고, 이후 사용자의 요청에 따라 필요한 페이지를 뒷담에서 렌더링하여 정적 파일로 추가하는 방식.
-        사용자는 빠르게 페이지에 접근할 수 있으며, 실시간 데이터 업데이트가 가능하기 때문에 동적인 웹사이트에도 적합합니다.
+<details>
+    <summary>간단한 GET 요청을 위한 Express.js 서버 라우트를 설정하는 기본 방법</summary>
     
-</details><br />
-
-****
-
-
-### 간단한 GET 요청을 위한 Express.js 서버 라우트를 설정하는 기본 방법
 ```javascript
 const express = require('express');
 const app = express();
@@ -131,34 +147,73 @@ app.listen(3000, () => {
     console.log('Server is listening on port 3000');
 });
 ```
+</details>
 
-### Next.js에서 라우팅을 처리하는 방법[`페이지 기반 라우팅` & `API 라우팅`]
-36분쯤부터 설명
-https://jjongbin.tistory.com/50 참고 나중에 다시 이해하기;;;
--app
-    -api
-        -user.js
+<details>
+    <summary>Next.js에서 라우팅을 처리하는 방법[`페이지 기반 라우팅` & `API 라우팅`]</summary><br />
+    
+페이지 기반 라우팅: 'app' 디렉토리 내의 파일 구조를 바탕으로 자동으로 URL 경로를 생성하고 관리합니다.  
+API 라우팅: api 내에 있는 모든 파일은 /api/*로 매핑되어 페이지 대신 API 엔드포인트로 처리됩니다.
 
--app
-    -posts
-        -page.js
-    -page.js
-    -rotue.js
+<details>
+    <summary>app(폴더구조)</summary>
 
-다이나믹 로우터 파일이 곧 주소
+- <details>
+    <summary>api</summary>
+        <details><summary>auth</summary>
+            <details><summary>[...nextauth]</summary>
+                <summary>route.js</summary>
+            </details>
+        </details>
+        <details><summary>prompt</summary>
+            <details><summary>[id]</summary>
+                <summary>route.js</summary>
+            </details>
+            <details><summary>new</summary>
+                <summary>route.js</summary>
+            </details>
+        </details>
+        <details><summary>users</summary>
+            <details><summary>[id]</summary>
+                    <details><summary>posts</summary>
+                        <summary>route.js</summary>
+            </details>
+        </details>
+    </details>
 
-HTTP methods
-GET
-POST
-PUT
-PATCH
-DELETE
-HEAD
-OPTIONS
+- <details>
+    <summary>create-prompt</summary>
+        <summary>page.js</summary>
+    </details>
 
+- <details>
+    <summary>profile</summary>
+        <details><summary>[id]</summary>
+        <summary>page.js</summary>
+    </details>
 
-### SEO를 개선하기 위해 메타데이터를 관리하는 방법 [`정적` & `동적`]
-41분부터 설명 나중에 다시 이해하기
+- <details>
+    <summary>update-prompt</summary>
+            <summary>page.js</summary>
+    </details>
+
+    <summary>layout.js</summary>
+    <summary>page.js</summary>
+</details><br />
+
+HTTP 메서드를 사용하여 특정 API 엔드포인트에 대해 어떤 작업을 수행할 것인지 정할 수 있다.  
+1. GET: 서버에게 특정 리소스의 정보를 요청합니다. 이는 데이터를 조회하는 데 주로 사용됩니다.
+2. POST: 서버에게 새로운 리소스를 생성하도록 요청합니다. 클라이언트는 서버에게 보내고자 하는 데이터를 요청 본문에 포함시킵니다.
+3. PUT: 서버에게 특정 리소스를 완전히 새로운 데이터로 대체하도록 요청합니다. 즉, 기존의 리소스를 새로운 데이터로 덮어씁니다.
+4. PATCH: 서버에게 특정 리소스의 일부만을 수정하도록 요청합니다.
+5. DELETE: 서버에게 특정 리소스를 삭제하도록 요청합니다.
+6. HEAD: GET 메서드와 유사하지만, 본문(body)을 포함하지 않고 헤더 정보만을 요청합니다. 이는 리소스의 메타데이터를 확인하는 데 주로 사용됩니다.
+7. OPTIONS: 서버가 지원하는 HTTP 메서드를 확인하기 위해 사용됩니다. 이는 특정 리소스에 대해 어떤 연산이 허용되는지를 알아보는 데 사용됩니다.
+</details>
+
+<details>
+    <summary>SEO를 개선하기 위해 메타데이터를 관리하는 방법 [정적 & 동적]</summary><br />
+
 정적 메타데이터
 ```javascript
 export const metadata = {
@@ -171,6 +226,7 @@ export default function Page(){
     )
 }
 ```
+<br />
 
 동적 메타데이터
 ```javascript
@@ -186,43 +242,37 @@ export default function Page(){
     )
 }
 ```
+</details><br />
 
-
-- 설치
-`npm install bcrypt mongodb mongoose next-auth`
-bcrypt 비밀번호 암호화
-mongodb, mongoose 데이터베이스 관리
-next-auth 로그인
-
-
-### 트러블 슈팅
-**1.** 
+****
+## 트러블 슈팅
+**1. css 오류** 
 - 오류:  
 ./app/layout.jsx:1:0  
 Can't resolve '@styles/globals.css';  
 그리고 RootLayout 컴포넌트가 자식 컴포넌트를 렌더링하지 못함
-```javascript
-export const metadata = {
-    title: "Promptivortex ",
-    description: 'Discover & Share AI Promtpts, AI 프롬포트 검색 & 공유'
-}
+    ```javascript
+    export const metadata = {
+        title: "Promptivortex ",
+        description: 'Discover & Share AI Promtpts, AI 프롬포트 검색 & 공유'
+    }
 
-const RootLayout = () => {
-    return (
-        <html lang='ko'>
-            <body>
-                <div className='main'>
-                    <div className='gradient' />
-                </div>
+    const RootLayout = () => {
+        return (
+            <html lang='ko'>
+                <body>
+                    <div className='main'>
+                        <div className='gradient' />
+                    </div>
 
-                <main className='app'>
-                    {children}
-                </main>
-            </body>
-        </html>
-    )
-}
-```
+                    <main className='app'>
+                        {children}
+                    </main>
+                </body>
+            </html>
+        )
+    }
+    ```
 - 해결:
     - jsconfig.json 변경
     ```javascript
@@ -237,7 +287,7 @@ const RootLayout = () => {
     }                           |    }
     ```
     @ 뒤에 오는 경로에서 슬래시(/)를 포함하지 않고 매칭하도록 설정을 변경.
-    *****
+    ****
     - layout.jsx 변경
     ```javascript
     const RootLayout = ({children}) => {
@@ -257,20 +307,20 @@ const RootLayout = () => {
     }
     ```
     children을 props를 통해 전달
-****
 
-> 2. tailwind css 커스텀
+****
+**2. tailwind css 커스텀**
 - 오류:
 ./styles/globals.css:111:5
 Syntax error: C:\Users\line\Desktop\share_prompts_next.jsxxxx\styles\globals.css The `shadow-[inset_10px_-50px_94px_0_rgb(199,` class does not exist. If `shadow-[inset_10px_-50px_94px_0_rgb(199,` is a custom class, make sure it is defined within a `@layer` directive.
-```javascript
-  109 | 
-  110 | .copy_btn {
-> 111 |     @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199, 199, 199, 0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
-      |     ^
-  112 | }
-  113 | 
-```
+    ```javascript
+    109 | 
+    110 | .copy_btn {
+    > 111 |     @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199, 199, 199, 0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+        |     ^
+    112 | }
+    113 | 
+    ```
 - 해결: 커스텀 css 설정 tailwindcss 문법에 맞게 수정!
     <a href="https://tailwindcss.com/docs/box-shadow">참고 문서</a>
     - tailwind.config.js 추가
@@ -293,13 +343,8 @@ Syntax error: C:\Users\line\Desktop\share_prompts_next.jsxxxx\styles\globals.css
     ```
     glabals.css에서 shadow 설정을 shadow-[inset_10px_-50px_94px_0_rgb(199, 199, 199, 0.2)]에서 shadow-inner로 바꿈.
 
-    - css 적용시 
-    ```javascript
-    className="shaodow-[inset_10px_-50px_94px_0_rgb(199, 199, 199, 0.2)]"
-    ```
 ****
-
-> 3. react-hook 사용
+**3. react-hook 사용**
 - 오류:
 ./components\Nav.jsx
 ReactServerComponentsError:
@@ -308,180 +353,188 @@ Learn more: https://nextjs.org/docs/getting-started/react-essentials
 Maybe one of these should be marked as a client entry with "use client":
   ./components\Nav.jsx
   ./app\layout.jsx
-```javascript
-   ╭─[C:\Users\line\Desktop\prompt-next\components\Nav.jsx:1:1]
- 1 │ import Link from 'next/link';
- 2 │ import Image from 'next/image';
- 3 │ import { useState, useEffect } from 'react';
-   ·                    ─────────
- 4 │ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
- 5 │ 
- 5 │ const Nav = () => {
-   ╰────
-```
+    ```javascript
+    ╭─[C:\Users\line\Desktop\prompt-next\components\Nav.jsx:1:1]
+    1 │ import Link from 'next/link';
+    2 │ import Image from 'next/image';
+    3 │ import { useState, useEffect } from 'react';
+    ·                    ─────────
+    4 │ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+    5 │ 
+    5 │ const Nav = () => {
+    ╰────
+    ```
 - 해결:
     - Nav.jsx
     ```javascript
     "use client";
     ```
     react-hook을 사용하려면 Nav.jsx에 `"use client";`를 상단에 명시해야 함!
-****
 
+****
 **4. 이미지 태그 사용**
 - 오류:
 Unhandled Runtime Error  
 Error: Image with src "/assets/images/logo.svg" is missing required "width" property.
-```javascript
-<Image src="/assets/images/logo.svg" />
-```
+    ```javascript
+    <Image src="/assets/images/logo.svg" />
+    ```
 - 해결: 넓이, 높이 속성도 지정해야 함.
-```javascript
-<Image
-    src="/assets/images/logo.svg"
-    alt='Promptivortex Logo'
-    width={30}
-    height={30}
-    className='object-contain'
-/>
-```
-<br>
-****
+    ```javascript
+    <Image
+        src="/assets/images/logo.svg"
+        alt='Promptivortex Logo'
+        width={30}
+        height={30}
+        className='object-contain'
+    />
+    ```
 
+****
 **5. 구글 로그인 엑세스 차단**
 - 오류:  
-<img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/prompt-next/main/public/assets/img/troubleshooting05.png">
+<img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/real_next_prompt/main/public/assets/images/troubleshooting05.png">
 Error 400: redirect_uri_mismatch
 
-- 해결:  
-NEXTAUTH_URL,NEXTAUTH_URL_INTERNAL 값이 오타로 인해 승인된 리디렉션 URI와 달라서 발생했기 때문에 오타를 수정함.
-[참고한 공식 문서](https://next-auth.js.org/getting-started/rest-api#getpost-apiauthcallbackprovider){:target="_blank" rel="noopener"}
-구글 클라우드 콘솔 promptivortex 프로젝트 > 사용자 인증 서비스 > 사용자 인증 정보 > OAuth 2.0 클라이언트 ID > 사용하는 ID의 승인된 리디렉션 URI에 http://localhost:3000/api/auth/callback/google 추가함.
+- 해결: [참고한 공식 문서](https://next-auth.js.org/getting-started/rest-api#getpost-apiauthcallbackprovider)  
+NEXTAUTH_URL,NEXTAUTH_URL_INTERNAL 값이 오타로 인해 승인된 리디렉션 URI와 달라서 발생했기 때문에 오타를 수정함.  
+구글 클라우드 콘솔 promptivortex 프로젝트 > 사용자 인증 서비스 > 사용자 인증 정보 > OAuth 2.0 클라이언트 ID > 사용하는 ID의 승인된 리디렉션 URI에 `http://localhost:3000/api/auth/callback/google` 추가함.  
 
+****
 **6. Next.js 업데이트로 바뀐 사항들**
 - 오류:  
 next.config.js에서 경고 문구가 뜸
 Invalid next.config.js options detected:
  ⚠     Unrecognized key(s) in object: 'appDir' at "experimental"
  ⚠     The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
-```javascript
-experimental: {
-        appDir: true,   // 새로운 앱 디렉토리 구조를 활성화
-        serverComponentsExternalPackages: ["mongoose"], // 서버 컴포넌트에서 외부 패키지를 사용할 수 있도록 설정 --> "mongoose"를 추가하여 사용
-    },
-images: {
-        domains: ['lh3.googleusercontent.com'], // 외부 도메인의 이미지를 Next.js 이미지 최적화 기능을 통해 사용할 수 있도록 허용하는 도메인을 명시 --> 구글 사용자 프로필 이미지 같은 경우 이 설정을 통해 허용됨
-    },
-```
-- 해결:  
-```javascript
-experimental: {
-        serverComponentsExternalPackages: ["mongoose"], // 서버 컴포넌트에서 외부 패키지를 사용할 수 있도록 설정 --> "mongoose"를 추가하여 사용
-    },
-    // Next.js의 이미지 최적화
+    ```javascript
+    experimental: {
+            appDir: true,   // 새로운 앱 디렉토리 구조를 활성화
+            serverComponentsExternalPackages: ["mongoose"], // 서버 컴포넌트에서 외부 패키지를 사용할 수 있도록 설정 --> "mongoose"를 추가하여 사용
+        },
     images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'lh3.googleusercontent.com',
-                // 필요한 경우 pathname 속성을 추가할 수 있습니다.
-            },
-        ],
-    },
-```
+            domains: ['lh3.googleusercontent.com'], // 외부 도메인의 이미지를 Next.js 이미지 최적화 기능을 통해 사용할 수 있도록 허용하는 도메인을 명시 --> 구글 사용자 프로필 이미지 같은 경우 이 설정을 통해 허용됨
+        },
+    ```
+- 해결:  
+    ```javascript
+    experimental: {
+            serverComponentsExternalPackages: ["mongoose"], // 서버 컴포넌트에서 외부 패키지를 사용할 수 있도록 설정 --> "mongoose"를 추가하여 사용
+        },
+        // Next.js의 이미지 최적화
+        images: {
+            remotePatterns: [
+                {
+                    protocol: 'https',
+                    hostname: 'lh3.googleusercontent.com',
+                    // 필요한 경우 pathname 속성을 추가할 수 있습니다.
+                },
+            ],
+        },
+    ```
 
+****
 **7. mongodb 연동 안됨**
 - 오류:  
 Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
 (Use `node --trace-warnings ...` to show where the warning was created)
 Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
-*****
-Error: User validation failed: username: Username invalid, it should contain 8-20 alphanumeric letters and be unique!
-```javascript
-errors: {
-    username: ValidatorError: Username invalid, it should contain 8-20 alphanumeric letters and be unique!
-    {
-        properties: [Object],
-        kind: 'regexp',
-        path: 'username',
-        value: 'ᄋᄋ',
-        reason: undefined,
-        [Symbol(mongoose#validatorError)]: true
-    }
-},
-_message: 'User validation failed'
-```
-*****
+
+    Error: User validation failed: username: Username invalid, it should contain 8-20 alphanumeric letters and be unique!
+    ```javascript
+    errors: {
+        username: ValidatorError: Username invalid, it should contain 8-20 alphanumeric letters and be unique!
+        {
+            properties: [Object],
+            kind: 'regexp',
+            path: 'username',
+            value: 'ᄋᄋ',
+            reason: undefined,
+            [Symbol(mongoose#validatorError)]: true
+        }
+    },
+    _message: 'User validation failed'
+    ```
 
 - 해결:  
 node.js 4.0 버전부터는 useNewUrlParser, useUnifiedTopology 더 이상 필요하지 않아서 뜬 경고문으로 삭제함.
-*****
-기존 username이 `[/^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/, "Username invalid, it should contain 8-20 alphanumeric letters and be unique!"]` 으로 영어, 숫자만 가능하게 되어있기 때문에 발생한 오류. 한글 포함이 되도록 `/^(?=.{2,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._ㄱ-ㅎ가-힣]+(?<![_.])$/` 으로 바꿈.
-*****
-```javascript
-const handler = NextAuth({
-    providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        }),
-    ],
-    async session({ session }) {
-        const sessionUser = await User.findOne({ email: session.user.email });
 
-        session.user.id = sessionUser._id.toString();
+    기존 username이 `[/^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/, "Username invalid, it should contain 8-20 alphanumeric letters and be unique!"]` 으로 영어, 숫자만 가능하게 되어있기 때문에 발생한 오류. 한글 포함이 되도록 `/^(?=.{2,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._ㄱ-ㅎ가-힣]+(?<![_.])$/` 으로 바꿈.
 
-        return session;
-    },
-    async signIn({ profile }) {
-        try {
-            await connectToDB();
-            
-            // 사용자가 이미 존재하는지 확인
-            const userExists = await User.findOne({ email: profile.email });
+    ```javascript
+    const handler = NextAuth({
+        providers: [
+            GoogleProvider({
+                clientId: process.env.GOOGLE_ID,
+                clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            }),
+        ],
+        async session({ session }) {
+            const sessionUser = await User.findOne({ email: session.user.email });
 
-            // 존재하지 않다면 새로운 사용자를 생성
-            if (!userExists) {
-                await User.create({
-                    email: profile.email,
-                    username: profile.name.replace(' ', '').toLowerCase(),
-                    image: profile.picture,
-                });
+            session.user.id = sessionUser._id.toString();
+
+            return session;
+        },
+        async signIn({ profile }) {
+            try {
+                await connectToDB();
+                
+                // 사용자가 이미 존재하는지 확인
+                const userExists = await User.findOne({ email: profile.email });
+
+                // 존재하지 않다면 새로운 사용자를 생성
+                if (!userExists) {
+                    await User.create({
+                        email: profile.email,
+                        username: profile.name.replace(' ', '').toLowerCase(),
+                        image: profile.picture,
+                    });
+                }
+
+                return true;
+            } catch (error) {
+                console.log("Error checking if user exists: ", error.message);
+                return false;
             }
+        },
+    });
+    ```
+**--> 세션 부분을 callbacks로 감싸줌.**
 
-            return true;
-        } catch (error) {
-            console.log("Error checking if user exists: ", error.message);
-            return false;
-        }
-    },
+****
+**8.배포시 feed가 안 보임** <a href="https://dev.to/janetthedev/using-mongooses-populate-in-nextjs-4jof">참고 문서</a><br />
+.populate('creator') --> `.populate ({ path: 'creator' })`  
+pormpt - route.js 수정
+```js
+await connectToDB();
+const prompts = await Prompt.find().populate({
+    path: "creator"
 });
-```
-세션 부분을 callbacks로 감싸줌.
 
-**8.배포시 feed가 안 보임**
-// https://dev.to/janetthedev/using-mongooses-populate-in-nextjs-4jof
-.populate('creator') --> .populate ({ path: 'creator' })
-```
-        await connectToDB();
-        const prompts = await Prompt.find().populate({
-          path: "creator"
-        });
+const response = new Response(JSON.stringify(prompts), {
+    status: 200,
+});
 
-        const response = new Response(JSON.stringify(prompts), {
-          status: 200,
-        });
+// Add a unique identifier to the URL to force a cache-busting reload
+const url = new URL(request.url);
+url.searchParams.set("t", Date.now());
+response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
+response.headers.set("Pragma", "no-cache");
+response.headers.set("Expires", "0");
+response.headers.set("Location", url.toString());
 
-        // Add a unique identifier to the URL to force a cache-busting reload
-        const url = new URL(request.url);
-        url.searchParams.set("t", Date.now());
-        response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
-        response.headers.set("Pragma", "no-cache");
-        response.headers.set("Expires", "0");
-        response.headers.set("Location", url.toString());
-
-        return response;
+return response;
 ```
 
+****
+## vercel 배포
+1. 배포 vercel에 배포 후 설정에서 .env에 있는 키 추가하기  
+<img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/real_next_prompt/main/public/assets/images/vercel deploy setting.png"><br />
+ 
+2. 구글 클라우드 콘솔에도 승인된 자바스크립트 원본, 승인된 리디렉션 URI에 배포된 주소 추가하기<br />
+<img src="https://raw.githubusercontent.com/Coconutpalmtreeisland/real_next_prompt/main/public/assets/images/add url"><br />
+****
 ### 용어 정리
 <details>
     <summary>자세히 보기</summary>
@@ -504,26 +557,10 @@ const handler = NextAuth({
     |useSession 훅이 반환하는 객체에서 data 속성을 가져와서 session이라는 새로운 변수에 할당|useSession 훅이 반환하는 객체를 sessionData 변수에 할당<br> sessionData 객체 안에 data 속성을 session에 할당|
 
     **--> 비구조화 할당을 사용하면 코드의 양을 줄이고, 의도를 더 명확하게 표현할 수 있다!**
-    </details>
-<br>
+    </details><br>
 
 - **옵셔널 체인징**: 객체의 속성을 읽을 때 해당 객체나 속성이 undefined 또는 null이 아닌지 확인하지 않고도 안전하게 접근할 수 있도록 하는 연산자이며, `?.`로 표시합니다. 
 **객체의 속성이 존재하지 않을 경우에 오류를 발생시키지 않고 undefined를 반환할 수 있다!**
 
     > `session?.user`라는 코드에서 session 객체가 존재하지 않거나 session 객체 안에 user 속성이 없을 경우에는 undefined를 반환하고, 그렇지 않으면 user 속성의 값을 반환하여 `session && session.user` 대신 사용하므로 코드가 `간결`해집니다.
 
-
-    검색 기능
-    프롬프트 내용으로 검색
-    태그로 검색
-    사용자 이름으로 검색
-    Feed.jsx
-
-    태그를 클릭했을 때 같은 태그끼리 한 페이지에 보이기
-    Feed.jsx
-
-    다른 사람의 프로필을 클릭해서 해당 사용자 글 모두 보기
-    profile - [id] - page.jsx & PromptCard.jsx
-
-    배포 vercel에 배포 후 설정에서 키 추가하기
-    구글 클라우드 콘솔에도 승인된 자바스크립트 원본, 승인된 리디렉션 URI 배포된 주소 추가하기
